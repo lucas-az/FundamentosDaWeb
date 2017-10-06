@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Ryu</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="./css/estilo.css"/>
+		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script>
+			$(function() {
+				
+				var comando1, comando2, comando3 = null;
+				
+				$("#lutador").hover(function() {
+					$(this).attr("src", "./img/ryu-ginga.gif");
+				});
+				
+				$("#lutador").mouseleave(function() {
+					$(this).attr("src", "./img/ryu.png");
+				});
+
+				$('body').keypress(function(e){
+                   var tecla = (e.keyCode?e.keyCode:e.which);
+                   if(comando1 == null) {
+						comando1 = tecla;
+                   } else if(comando2 == null) {
+                   		comando2 = tecla;
+                   } else {
+                   		comando3 = tecla;
+                   }
+                   if(comando1 && comando2 && comando3) {
+                   		if(comando1 == 115 && comando2 == 100 && comando3 == 13) {
+                   			executaMagia();
+
+                   		}
+                   		if(comando1 == 115 && comando2 == 97 && comando3 == 13) {
+                   			executaVoadora();
+
+                   		}
+                   		if(comando1 == 115 && comando2 == 119 && comando3 == 13) {
+                   			executaGolpe();
+                   		}
+                   		comando1 = null;
+                   		comando2 = null;
+                   		comando3 = null;
+                   }
+                   console.log(tecla);
+                });
+			});
+
+			function executaMagia() {
+				$("#lutador").attr("src", "./img/ryu-magia.png")
+				$("#ringue")
+					.append($("<audio/>")
+						.addClass("som-magia")
+						.attr("autoplay", "autoplay")
+						.append($("<source/>")
+							.attr("src", "./sound/hadouken.mp3")))
+					.append($("<img/>").attr("src", "./img/bola-fogo.gif")
+						.addClass("magia")
+						.animate({"margin-left" : "+=1000px"}, 1000, 
+							function() {
+								$(this).remove();
+								$("#lutador").attr("src", "./img/ryu-ginga.gif");
+								$(".som-magia").remove();
+							}
+						)
+					)
+			}
+
+			function executaVoadora() {
+				$("#lutador").attr("src", "./img/ryu-tatsumaki.gif").addClass("voadora");
+				$("#ringue")
+					.append($("<audio/>")
+						.addClass("som-voadora")
+						.attr("autoplay", "autoplay")
+						.append($("<source/>")
+							.attr("src", "./sound/ryu-tatsumaki.mp3")
+						)
+					);
+				setTimeout(function(){
+					$("#lutador").show();
+					$(".voadora").removeClass();
+					$("#lutador").attr("src", "./img/ryu-ginga.gif");
+					$(".som-voadora").remove();
+
+				}, 1950);
+			}
+
+			function executaGolpe() {
+				$("#lutador").attr("src", "./img/ryu-shoryuken.gif").addClass("golpe");
+				$("#ringue")
+					.append($("<audio/>")
+						.addClass("som-golpe")
+						.attr("autoplay", "autoplay")
+						.append($("<source/>")
+							.attr("src", "./sound/ryu-shoryuken.mp3")
+						)
+					);
+				setTimeout(function() {
+					$("#lutador").show();
+					$(".golpe").removeClass();
+					$("#lutador").attr("src", "./img/ryu-ginga.gif");
+					$(".som-golpe").remove();
+				}, 1950);
+			}
+
+		</script>
+
+	</head>
+	<body>
+		<audio autoplay="autoplay">
+			<source src="./sound/ryu-musica-fase.mp3"/>
+		</audio>
+		<div id="ringue">
+			<img src="./img/ryu.png" id="lutador"/>
+		</div>
+	</body>
+</html>

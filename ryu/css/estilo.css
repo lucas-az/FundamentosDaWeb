@@ -1,0 +1,29 @@
+body {
+	background: url(../img/background.jpeg) no-repeat;
+	background-size: 100% 100%;
+	height: 600px;
+	position: relative;
+}
+
+#ringue {
+	position: absolute;
+	bottom: 40px;
+}
+
+.magia {
+	position: absolute;
+	top: 40px;
+	left: 200px;
+	height: 67px;
+}
+
+.voadora {
+	width: 470px;
+	height: 290px;
+}
+
+.golpe{
+	width: 240px;
+	height: 370px;
+}
+
