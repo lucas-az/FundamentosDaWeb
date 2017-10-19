@@ -35,8 +35,11 @@ $(function() {
 				});
 				
 				$.each(filme.opinioes, function (indice, opiniao) {
+					for(var i = 0; i < opiniao.rating; i++) {
+						$opinioes
+							.append($("<span/>").addClass("estrela"));
+					}
 					$opinioes 
-						.append($("<span/>").addClass("estrela").text(opiniao.rating))
 						.append($("<p/>").addClass("opiniao").text(opiniao.descricao));
 				});
 
