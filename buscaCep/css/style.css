@@ -73,24 +73,3 @@ body, html {
 	font-family: "Acme", sans-serif;
 }
 
-.endereco {
-	display: none;
-	position: absolute;
-	top: 60%;
-	left: 35%;
-	width: 415px;
-	background-color: rgba(0,0,0,0.7);
-	color: #bebebe;
-	border-radius: 5px;
-	padding: 20px;
-	box-sizing: border-box;
-	font-size: 1em;
-}
-
-.endereco table th, td {
-	padding: 5px;
-}
-
-.endereco table th {
-	text-align: right;
-}

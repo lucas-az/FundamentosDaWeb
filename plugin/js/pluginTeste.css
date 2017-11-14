@@ -1,0 +1,30 @@
+.mensageiro {
+	position: relative;
+	border: #000 solid 1px;
+	border-radius: 3px;
+	width: 500px;
+	margin: 10px;
+}
+
+.mensageiro p {
+	padding: 3px 10px;
+}
+
+
+.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+.erro {
+	background-color: rgb(247, 214, 218);
+	color: rgb(113, 22, 37);
+	border: rgb(244, 197, 203) solid 1px;
+}
+
+.sucesso {
+	border: rgb(191, 229, 235) solid 1px;
+	background-color: rgb(213, 238, 218);
+	color: rgb(25, 89, 77);
+}

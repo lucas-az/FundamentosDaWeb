@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Cefetflix</title>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="./plugin/plugin.css"/>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./plugin/plugin.js"></script>
+		<script>
+			$(function() {
+				$("#movies").cefetflix({url:"http://botanicapp.com.br/filmes.php"});
+			})
+		</script>
+	</head>
+	<body>
+		<div id="principal">
+			<h1>Cefetflix</h1>
+		</div>
+		<div id="movies"></div>
+	</body>
+</html>

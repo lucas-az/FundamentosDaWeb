@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./js/pluginTeste.css"/>
+		<style>
+			.close {
+				cursor: hand; 
+				cursor: pointer;
+			} 
+		</style>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/pluginTeste.js"></script>
+		<script>
+			$(function() {
+				$("button").click(function() {
+					var frase = $("#frase").val();
+					var options = {"mensagem":frase};
+					options.categoria = $("#classe").val();
+					$("#teste").pluginTeste(options);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="teste">
+			<input type="text" id="frase" placeholder="mensagem"/>
+			<select id="classe">
+				<option value="sucesso">Sucesso</option>
+				<option value="erro">Erro</option>
+			</select>
+		</div>
+		<button>Testar plugin</button>
+	</body>
+</html>

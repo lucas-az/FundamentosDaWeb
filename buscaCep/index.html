@@ -4,9 +4,18 @@
 		<title>Busca CEP</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="./plugin/pluginAdress.css"/>
 		<script src="./js/jquery.min.js"></script>
 		<script src="./js/inputmask-plugin.js"></script>
-		<script src="./js/ajax.js"></script>
+		<script src="./plugin/pluginAdress.js"></script>
+		<script>
+			$(function() {
+				$("#buscaEnd").click(function() {
+					var cep = $("#cep").val();
+					$(".endereco").pluginAdress({url:"http://api.postmon.com.br/v1/cep/"+cep});
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div class="principal">
@@ -17,24 +26,7 @@
 					<button id="buscaEnd">Buscar Endereço</button>
 				</div>
 				<div class="endereco">
-					<table>
-						<tr>
-							<th>Logradouro: </th>
-							<td class="logradouro"></td>
-						</tr>
-						<tr>
-							<th>Bairro: </th>
-							<td class="bairro"></td>
-						</tr>
-						<tr>
-							<th>Cidade: </th>
-							<td class="cidade"></td>
-						</tr>
-						<tr>
-							<th>Estado:</th>
-							<td class="estado"></td>
-						</tr>
-					</table>
+					
 				</div>
 			</div>
 		</div>

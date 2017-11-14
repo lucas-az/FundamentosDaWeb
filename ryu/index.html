@@ -87,8 +87,10 @@
 			}
 
 			function executaGolpe() {
+				
 				$("#lutador").attr("src", "./img/ryu-shoryuken.gif").addClass("golpe");
-				$("#ringue")
+				setTimeout(function() {
+					$("#ringue")
 					.append($("<audio/>")
 						.addClass("som-golpe")
 						.attr("autoplay", "autoplay")
@@ -96,6 +98,8 @@
 							.attr("src", "./sound/ryu-shoryuken.mp3")
 						)
 					);
+				}, 400);
+
 				setTimeout(function() {
 					$("#lutador").show();
 					$(".golpe").removeClass();
